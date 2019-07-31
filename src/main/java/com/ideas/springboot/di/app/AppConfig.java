@@ -12,14 +12,28 @@ import com.ideas.springboot.di.app.models.domain.Producto;
 import com.ideas.springboot.di.app.models.service.IServicio;
 import com.ideas.springboot.di.app.models.service.MiServicio;
 
+/**
+ * The Class AppConfig.
+ * @author Israel Bejarano
+ */
 @Configuration
 public class AppConfig {
 
+	/**
+	 * Registrar mi servicio.
+	 *
+	 * @return the i servicio
+	 */
 	@Bean("miServicio")
 	public IServicio registrarMiServicio() {
 		return new MiServicio();
 	}
 	
+	/**
+	 * Registrar items.
+	 *
+	 * @return the list
+	 */
 	@Bean("itemsFactura")
 	public List<ItemFactura> registrarItems() {
 		Producto p1 = new Producto("camara de fotos", 100);
@@ -31,6 +45,11 @@ public class AppConfig {
 		return Arrays.asList(linea1, linea2);
 	}
 	
+	/**
+	 * Registrar items oficina.
+	 *
+	 * @return the list
+	 */
 	@Bean("itemsFacturaOficina")
 	@Primary
 	public List<ItemFactura> registrarItemsOficina() {
